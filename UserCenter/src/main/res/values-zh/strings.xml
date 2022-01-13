@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">用户中心</string>
+    <string name="usercenter_login_inputname">请输入用户名</string>
+    <string name="usercenter_login_inputpwd">请输入密码</string>
+    <string name="usercenter_login_login">登录</string>
+</resources>
