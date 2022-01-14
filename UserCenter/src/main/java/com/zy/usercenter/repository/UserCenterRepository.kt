@@ -1,6 +1,7 @@
 package com.zy.usercenter.repository
 
 import com.develop1905.mvpcore.BaseRepository
+import com.develop1905.mvpcore.common.Model
 import com.zy.usercenter.entity.UserEntity
 import com.zy.usercenter.model.UserCenterModel
 import io.reactivex.Flowable
@@ -16,10 +17,11 @@ import io.reactivex.Flowable
  *
  * @version 1.0.0
  */
-class UserCenterRepository: BaseRepository<UserCenterModel>() {
-    override fun createModel(): UserCenterModel {
-        return UserCenterModel()
-    }
+class UserCenterRepository: BaseRepository() {
+
+    @Model
+    val mModel:UserCenterModel?=null
+
 
     /**
      * 模拟用户登录操作
@@ -29,6 +31,6 @@ class UserCenterRepository: BaseRepository<UserCenterModel>() {
      */
     fun login(userName:String,pwd:String): Flowable<UserEntity> {
 
-        return mModel.login(userName,pwd)
+        return mModel!!.login(userName,pwd)
     }
 }

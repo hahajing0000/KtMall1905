@@ -8,12 +8,13 @@ import com.zy.usercenter.R
 import com.zy.usercenter.presenter.UserCenterPresenter
 import com.zy.usercenter.view.IUserCenterView
 import kotlinx.android.synthetic.main.activity_login.*
+import org.jetbrains.anko.*
 
-class LoginActivity : BaseMVPActivity<UserCenterPresenter>(),IUserCenterView {
+class LoginActivity : BaseMVPActivity<UserCenterPresenter>(),IUserCenterView,AnkoLogger {
 
-    private lateinit var etUsercenterUsername: EditText
-    private lateinit var etUsercenterPwd:EditText
-    private lateinit var btnUsercenterLogin: Button
+//    private lateinit var etUsercenterUsername: EditText
+//    private lateinit var etUsercenterPwd:EditText
+//    private lateinit var btnUsercenterLogin: Button
 
 
     override fun initEvent() {
@@ -30,9 +31,9 @@ class LoginActivity : BaseMVPActivity<UserCenterPresenter>(),IUserCenterView {
     }
 
     override fun initView(savedInstanceState: Bundle?) {
-        etUsercenterUsername=findViewById(R.id.et_usercenter_username)
-        etUsercenterPwd=findViewById(R.id.et_usercenter_pwd)
-        btnUsercenterLogin=findViewById(R.id.btn_usercenter_login)
+//        etUsercenterUsername=findViewById(R.id.et_usercenter_username)
+//        etUsercenterPwd=findViewById(R.id.et_usercenter_pwd)
+//        btnUsercenterLogin=findViewById(R.id.btn_usercenter_login)
     }
 
     override fun createPresenter(): UserCenterPresenter {

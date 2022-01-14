@@ -13,7 +13,7 @@ import java.lang.ref.SoftReference
  *
  * @version 1.0.0
  */
-abstract class BasePresenter<Repo:BaseRepository<*>,V:IView>(view:V) {
+abstract class BasePresenter<Repo:BaseRepository,V:IView>(view:V) {
     protected val mRepository:Repo
     protected val mView:SoftReference<V>
     init {

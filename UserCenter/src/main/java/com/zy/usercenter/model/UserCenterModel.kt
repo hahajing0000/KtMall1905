@@ -19,7 +19,7 @@ import io.reactivex.FlowableOnSubscribe
  *
  * @version 1.0.0
  */
-class UserCenterModel:IModel {
+class UserCenterModel constructor():IModel {
 
     /**
      * 模拟用户登录操作

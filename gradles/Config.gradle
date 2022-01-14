@@ -27,7 +27,9 @@ ext{
             fastjsonAndroid: "com.alibaba:fastjson:$version.fastjsonAndroid",
             fastjson:"com.alibaba:fastjson:$version.fastjson",
 
-            greenDao:"org.greenrobot:greendao:$version.greenDao"
+            greenDao:"org.greenrobot:greendao:$version.greenDao",
+
+            anko: "org.jetbrains.anko:anko:$version.anko_version"
     ]
 
     urls=[
