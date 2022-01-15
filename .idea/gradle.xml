@@ -12,7 +12,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Common" />
             <option value="$PROJECT_DIR$/MVPCore" />
+            <option value="$PROJECT_DIR$/Net" />
             <option value="$PROJECT_DIR$/Resource" />
             <option value="$PROJECT_DIR$/UserCenter" />
             <option value="$PROJECT_DIR$/app" />

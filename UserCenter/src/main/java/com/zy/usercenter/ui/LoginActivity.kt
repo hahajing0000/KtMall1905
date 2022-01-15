@@ -1,28 +1,50 @@
 package com.zy.usercenter.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import com.develop1905.mvpcore.view.BaseMVPActivity
+import com.develop1905.net.RetrofitFactory
+import com.develop1905.net.ext.doResult
 import com.zy.usercenter.R
+import com.zy.usercenter.entity.GetGoodsListReq
+import com.zy.usercenter.model.api.GoodsApi
 import com.zy.usercenter.presenter.UserCenterPresenter
 import com.zy.usercenter.view.IUserCenterView
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.coroutines.*
 import org.jetbrains.anko.*
+import kotlin.coroutines.CoroutineContext
 
-class LoginActivity : BaseMVPActivity<UserCenterPresenter>(),IUserCenterView,AnkoLogger {
-
-//    private lateinit var etUsercenterUsername: EditText
-//    private lateinit var etUsercenterPwd:EditText
-//    private lateinit var btnUsercenterLogin: Button
+class LoginActivity() : BaseMVPActivity<UserCenterPresenter>(), IUserCenterView, AnkoLogger {
 
 
     override fun initEvent() {
         btn_usercenter_login.setOnClickListener {
-            val username=et_usercenter_username.text.toString()
-            val pwd=et_usercenter_pwd.text.toString()
-            mPresenter.login(username,pwd)
 
+            var result = RetrofitFactory.create(GoodsApi::class.java)
+            var defferd = result.getGoodsList(GetGoodsListReq(1, 1))
+
+
+            launch(Dispatchers.IO) {
+                val that = this
+                defferd.doResult(
+                    { r ->
+                        CoroutineScope(Dispatchers.Main).launch {
+                            Log.d("123", "initEvent: $r")
+                        }
+                    },
+                    { e ->
+                        CoroutineScope(Dispatchers.Main).launch {
+                            Log.e("123", "error:${e.message}")
+                        }
+                    },
+                    {
+
+                    })
+
+            }
         }
     }
 
@@ -31,9 +53,7 @@ class LoginActivity : BaseMVPActivity<UserCenterPresenter>(),IUserCenterView,Ank
     }
 
     override fun initView(savedInstanceState: Bundle?) {
-//        etUsercenterUsername=findViewById(R.id.et_usercenter_username)
-//        etUsercenterPwd=findViewById(R.id.et_usercenter_pwd)
-//        btnUsercenterLogin=findViewById(R.id.btn_usercenter_login)
+
     }
 
     override fun createPresenter(): UserCenterPresenter {
